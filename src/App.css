@@ -1,38 +1,41 @@
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Mostly everything is handled by Tailwind, including RWD */
+
 .App {
-  text-align: center;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
+  Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.color-primary {
+  color: #ffc004;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Transition animation */
+
+.slide-enter {
+  opacity: 0;
+  z-index: 1;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.slide-enter.slide-enter-active {
+  opacity: 1;
+  transition: all 400ms ease-in;
 }
 
-.App-link {
-  color: #61dafb;
+.slide-exit {
+  opacity: 1;
+  z-index: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.slide-exit.slide-exit-active {
+  opacity: 0;
+  transition: all 400ms ease-in;
+}
+
+.slide-exit-done {
+  opacity: 0;
 }
